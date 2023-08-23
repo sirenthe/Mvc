@@ -1,0 +1,46 @@
+﻿@using EduHome.ViewModels
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model DetailTeacherViewModel
+<div>
+    <div class="container">
+
+<h3> Name-@Model.Name</h3>
+<p>Occupation-@Model.Occupation</p>
+<p> Description-@Model.Description</p>
+<p> Faculty-@Model.Faculty</p>
+<p> Email-@Model.Email</p>
+<p> Experince-@Model.Experinece</p>
+    <img src="~/assets/img/teacher/@Model.Image" style="max-width:25%" />
+<p>Hobbies-@Model.Hobbies</p>
+
+
+
+
+<h4>Social Media</h4>
+<ul>
+    @foreach (var socialMedia in Model.SocialMedias)
+    {
+        <li>
+            <a href="@socialMedia.Url">@socialMedia.Name</a>
+        </li>
+    }
+</ul>
+
+
+        
+        <h4>Skills</h4>
+        <ul>
+            @foreach (var skill in Model.Skills)
+            {
+                <li>@skill.Name </li>
+            }
+        </ul>
+        
+
+</div>
+</div>
+

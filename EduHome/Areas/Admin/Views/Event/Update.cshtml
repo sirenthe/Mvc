@@ -1,0 +1,85 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using EduHome.Areas.Admin.ViewModels.EventViewModel
+
+
+
+@{
+	ViewData["Title"] = "Update";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model UpdateEventViewModel
+
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">Create</h4>
+
+		<form class="forms-sample" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="exampleInputUsername1">Img</label>
+				<input class="form-control" asp-for="Image" placeholder="Img" accept="image/*">
+				<span asp-validation-for="Image" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Name</label>
+				<input class="form-control" asp-for="Name" placeholder="Title">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+
+			<textarea id="editor"></textarea>
+
+
+			<div class="form-group">
+				<label for="exampleInputUsername1">Description</label>
+				<input class="form-control" asp-for="Description" placeholder="Description">
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Date</label>
+				<input class="form-control" asp-for="Date" placeholder="Duration">
+				<span asp-validation-for="Date" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Time</label>
+				<input class="form-control" asp-for="Time" placeholder="SkillLevel">
+				<span asp-validation-for="Time" class="text-danger"></span>
+			</div>
+
+
+			<div class="form-group">
+				<label for="exampleInputUsername1">Venue</label>
+				<input class="form-control" asp-for="Venue" placeholder="Venue">
+				<span asp-validation-for="Venue" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label for="SelectedSpeakerIds">Speakers</label>
+				<select asp-for="SelectedSpeakerIds" asp-items="new SelectList(Model.AvailableSpeakers, nameof(SpeakerViewModel.Id), nameof(SpeakerViewModel.Name))" multiple class="form-control">
+				</select>
+				<span asp-validation-for="SelectedSpeakerIds" class="text-danger"></span>
+			</div>
+
+	
+
+
+
+
+			<script>
+				ClassicEditor
+					.create(document.querySelector('#editor'))
+					.then(editor => {
+						console.log(editor);
+					})
+					.catch(error => {
+						console.error(error);
+					});
+			</script>
+
+			<button asp-action="Update" class="btn btn-warning mr-2">Update</button>
+
+		</form>
+	</div>
+</div>
+
+
+

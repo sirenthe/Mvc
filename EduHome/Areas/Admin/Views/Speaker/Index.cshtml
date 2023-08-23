@@ -1,0 +1,67 @@
+﻿@using EduHome.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model List<Speaker>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Speakers</h4>
+
+                    <div class="table-responsive">
+
+                        <a asp-action="Create" class="btn btn-primary">Create</a>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+
+                                    <th>Name</th>
+                                    <th>Occupation</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var speaker in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="~/assets/img/event/@speaker.Image" />
+
+                                        </td>
+
+                                        <td>@speaker.Name</td>
+                                        <td>@speaker.Occupation</td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-action="Detail" asp-route-id="@speaker.Id"> Detail </a>
+
+                                        </td>
+
+                                        <td>
+                                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@speaker.Id"> Update </a>
+                                        </td>
+
+                                        <td>
+                                            <a class="btn btn-danger " asp-action="Delete" asp-route-id="@speaker.Id"> Delete </a>
+                                        </td>
+                                    </tr>
+
+                                }
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@using EduHome.Areas.Admin.ViewModels.SpeakerViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model DetailSpeakerViewModel
+
+<div class="content-wrapper">
+    <div class="row">
+        <div>
+            <img src="~/assets/img/event/@Model.Image" style="width:20%" />
+
+            <h4>Occupation:@Model.Occupation</h4>
+            <h4>Name:@Model.Name</h4>
+    
+
+
+
+            <h4>Events:</h4>
+            <ul>
+                @foreach (var category in Model.Events)
+                {
+                    <li>@category.Name</li>
+                }
+            </ul>
+
+
+        </div>
+        <div>
+            <a class="btn btn-primary " asp-action="Index">go back </a>
+        </div>
+    </div>
+</div>
+
+

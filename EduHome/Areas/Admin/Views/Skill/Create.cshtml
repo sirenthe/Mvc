@@ -1,0 +1,32 @@
+﻿@using EduHome.Models
+@using EduHome.Areas.Admin.ViewModels.SkillViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	ViewData["Title"] = "Create";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model CreateSkillViewModel
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">Slider</h4>
+
+		<form class="forms-sample" method="post" enctype="multipart/form-data">
+			
+		
+			
+			<div class="form-group">
+				<label for="exampleInputUsername1">Name</label>
+				<input class="form-control" asp-for="Name" placeholder=" Name">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+		
+			
+		
+
+			<button asp-action="Create" class="btn btn-primary mr-2">Create</button>
+
+		</form>
+	</div>
+</div>
+

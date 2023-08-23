@@ -1,0 +1,109 @@
+﻿@using EduHome.Areas.Admin.ViewModels.Student
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model CreateStudentViewModel
+
+
+
+
+<div class="container">
+
+
+    <div class="s">
+        <form asp-action="Create" method="post">
+			<form class="forms-sample" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="exampleInputUsername1">Img</label>
+					<input class="form-control" asp-for="Image" placeholder="Img" accept="image/*">
+					<span asp-validation-for="Image" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputUsername1">Name</label>
+					<input class="form-control" asp-for="Name" placeholder="Title">
+					<span asp-validation-for="Name" class="text-danger"></span>
+				</div>
+
+
+
+
+				<div class="form-group">
+					<label for="exampleInputUsername1">Description</label>
+					<input class="form-control" asp-for="Description" placeholder="Description">
+					<span asp-validation-for="Description" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputUsername1">Occupation</label>
+					<input class="form-control" asp-for="Occupation" placeholder="Occupation">
+					<span asp-validation-for="Occupation" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputUsername1">Degree</label>
+					<input class="form-control" asp-for="Degree" placeholder="Degree">
+					<span asp-validation-for="Degree" class="text-danger"></span>
+				</div>
+
+
+				<div class="form-group">
+					<label for="exampleInputUsername1">Experinece</label>
+					<input class="form-control" asp-for="Experinece" placeholder="Experinece">
+					<span asp-validation-for="Experinece" class="text-danger"></span>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputUsername1">Hobbies</label>
+					<input class="form-control" asp-for="Hobbies" placeholder="Hobbies">
+					<span asp-validation-for="Hobbies" class="text-danger"></span>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputUsername1">Faculty</label>
+					<input class="form-control" asp-for="Faculty" placeholder="Faculty">
+					<span asp-validation-for="Faculty" class="text-danger"></span>
+				</div>
+
+
+
+				<div class="form-group">
+					<label for="exampleInputUsername1">skype</label>
+					<input class="form-control" asp-for="skype" placeholder="skype">
+					<span asp-validation-for="skype" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputUsername1">phone</label>
+					<input class="form-control" asp-for="Phone" placeholder="Phone">
+					<span asp-validation-for="Phone" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputUsername1">email</label>
+					<input class="form-control" asp-for="Email" placeholder="Email">
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+
+
+			@*	<div class="form-group">
+					<label for="SelectedSocialMedia">Sosyal Medya Hesapları</label>
+					<select multiple class="form-control" asp-for="SelectedSocialMedia">
+						@if (Model.SocialMediaOptions != null)
+						{
+							@foreach (var socialMedia in Model.SocialMediaOptions)
+							{
+								<option value="@socialMedia.Id">@socialMedia.Name</option>
+							}
+						}
+					</select>
+				</div>
+*@
+
+
+
+
+
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+		</form>
+    </div>
+</div>

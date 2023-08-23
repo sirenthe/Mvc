@@ -1,0 +1,63 @@
+﻿@using EduHome.Models
+@using EduHome.Areas.Admin.ViewModels.BlogViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	ViewData["Title"] = "Create";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model CreateBlogViewModel
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">Blog</h4>
+
+		<form class="forms-sample" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="exampleInputUsername1">Image</label>
+				<input class="form-control" asp-for="Image" placeholder="Img" accept="image/*">
+				<span asp-validation-for="Image" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Title</label>
+				<input class="form-control" asp-for="Title" placeholder="Title">
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Time</label>
+				<input class="form-control" asp-for="Time" placeholder=" Time">
+				<span asp-validation-for="Time" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Author</label>
+				<input class="form-control" asp-for="Author" placeholder=" Author">
+				<span asp-validation-for="Author" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label for="exampleInputUsername1">Description</label>
+				<input class="form-control" asp-for="Description" placeholder="Description">
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Commentcount</label>
+				<input class="form-control" asp-for="CommmentCount" placeholder="maxcomment">
+				<span asp-validation-for="CommmentCount" class="text-danger"></span>
+			</div>
+			<textarea id="editor"></textarea>
+			<script>
+				ClassicEditor
+					.create(document.querySelector('#editor'))
+					.then(editor => {
+						console.log(editor);
+					})
+					.catch(error => {
+						console.error(error);
+					});
+			</script>
+
+			<button asp-action="Create" class="btn btn-primary mr-2">Create</button>
+
+		</form>
+	</div>
+</div>
+

@@ -1,0 +1,66 @@
+﻿@using EduHome.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model List<Course>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Courses</h4>
+
+                    <div class="table-responsive">
+                       
+                            <a asp-action="Create" class="btn btn-primary">Create</a>
+                        
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var course in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="~/assets/img/course/@course.Image" />
+
+                                        </td>
+
+                                        <td>@course.Name</td>
+                                        <td>@course.Description</td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-action="Detail" asp-route-id="@course.Id"> Detail </a>
+
+                                        </td>
+
+                                        <td>
+                                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@course.Id"> Update </a>
+                                        </td>
+
+                                        <td>
+                                            <a class="btn btn-danger " asp-action="Delete" asp-route-id="@course.Id"> Delete </a>
+                                        </td>
+                                    </tr>
+
+                                }
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,53 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using EduHome.Areas.Admin.ViewModels.SpeakerViewModel
+
+
+
+@{
+	ViewData["Title"] = "Update";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model UpdateSpeakerViewModel
+
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">Speaker</h4>
+
+		<form class="forms-sample" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="exampleInputUsername1">Image</label>
+				<input class="form-control" asp-for="Image" placeholder="Img" accept="image/*">
+				<span asp-validation-for="Image" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Name</label>
+				<input class="form-control" asp-for="Name" placeholder="Name">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputUsername1">Occupation</label>
+				<input class="form-control" asp-for="Occupation" placeholder="Occupation">
+				<span asp-validation-for="Occupation" class="text-danger"></span>
+			</div>
+			
+
+		
+			<textarea id="editor"></textarea>
+			<script>
+				ClassicEditor
+					.create(document.querySelector('#editor'))
+					.then(editor => {
+						console.log(editor);
+					})
+					.catch(error => {
+						console.error(error);
+					});
+			</script>
+
+			<button asp-action="Update" asp-controller="Speaker" class="btn btn-warning mr-2">Update</button>
+
+		</form>
+	</div>
+</div>
+
